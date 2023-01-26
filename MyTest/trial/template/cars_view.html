@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        
+        .link {
+            text-decoration: none;
+            background-color: rgba(12, 168, 230, 0.603);
+            color: white;
+            border: 2px mintcream;
+            padding: 5px 15px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 20px;
+        }
+        
+        .link:hover {
+            color: purple
+        }
+        
+        .delete {
+            text-decoration: none;
+            background-color: rgba(230, 12, 12, 0.603);
+            color: white;
+            border: 2px mintcream;
+            padding: 5px 15px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 20px;
+        }
+        
+        .delete:hover {
+            color: purple
+        }
+        
+        .update {
+            text-decoration: none;
+            background-color: #0ca8e6;
+            color: white;
+            border: 2px mintcream;
+            padding: 5px 15px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 20px;
+        }
+        
+        .update:hover {
+            color: purple
+        }
+    </style>
+</head>
+
+<body>
+    {% block TopNavigation %} {% include "TopNavigation.html" %} {% endblock TopNavigation %} {% block pageContent%}
+    <h1>List of Cars <a class="link" href="car">Add New</a></h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Car Name</th>
+                <th>Manufacture</th>
+                <th>Engine Type</th>
+                <th>Color</th>
+                <th>Automation</th>
+                <th>Speed</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in car %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{item.car_name}}</td>
+                <td>{{item.manufacture}}</td>
+                <td>{{item.engine_type}}</td>
+                <td>{{item.color}}</td>
+                <td>{{item.automation}}</td>
+                <td>{{item.speed}}</td>
+                <td>{{item.price}}</td>
+                <td><a class="update" href="#">update</a></td>
+                <td><a class="delete" href="delete car/{{item.id}}">delete</a></td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    {% endblock pageContent %}
+</body>
+
+
+</html>

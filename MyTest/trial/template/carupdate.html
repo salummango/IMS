@@ -1,0 +1,106 @@
+{% load static %}{% block pageContent %}{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IMS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: whitesmoke;
+        }
+        
+        .input {
+            display: block;
+            padding: 12px 15px;
+            width: 100%;
+            left: 50%;
+            outline: none;
+            border: 3px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .box {
+            width: 420px;
+            height: 410px;
+            margin: auto;
+            padding: 30px 50px 30px 50px;
+            border: 5px solid snow;
+            margin-top: 10px;
+            border-radius: 20px 70px;
+            background-color: ghostwhite;
+        }
+        
+        .button {
+            padding: 10px 30px;
+            margin-top: 5px;
+            border-radius: 20px;
+            background-color: cornflowerblue;
+            color: black;
+            border: 2px mintcream;
+        }
+        
+        .button:hover {
+            color: azure
+        }
+        
+        h1 {
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .link {
+            text-decoration: none;
+            background-color: white;
+            color: black;
+            border: 2px mintcream;
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 20px;
+        }
+        
+        .link:hover {
+            color: burlywood
+        }
+    </style>
+
+</head>
+
+<body>
+    {% block TopNavigation %} {% include "TopNavigation.html" %} {% endblock TopNavigation %}
+    <div class="box">
+        <h1><b>Update car</b></h1>
+        <form class="input" method="POST" action="updatecarrecord/{{cars.id}}">
+            {% csrf_token %}
+            <div style='margin-left:18px;'>car name
+                <input type=' text ' name='carname ' value="{{cars.car_name}}" class='required '><br><br>
+            </div>
+            <div>Manufacture
+                <input type='text ' name='manufacture ' value="{{cars.manufacture}}" class='required '><br><br>
+            </div>
+            <div>engine type
+                <input type='text ' name='enginetype ' value="{{cars.engine_type}}" class='required '><br><br>
+            </div>
+            <div style='margin-left:35px;'>color
+                <input type='text ' name='color ' value="{{cars.color}}" class='required '><br><br>
+            </div>
+            <div>automation
+                <input type='text ' name='automation ' value="{{cars.automation}}" class='required '><br><br>
+            </div>
+            <div style='margin-left:34px;'>speed
+                <input type='text ' name='speed ' value="{{cars.speed}}" class='required '><br><br>
+            </div>
+            <div style='margin-left:35px;'>price
+                <input type='text ' name='price' value="{{cars.price}}" class='required '><br>
+            </div>
+            <a class="link" href="car list">Cancel</a>
+            <button class='button ' type="submit">Update</button>
+        </form>
+    </div>
+</body>
+
+</html>
+{% endblock pageContent %}

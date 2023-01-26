@@ -1,0 +1,158 @@
+{% load static %} {% block pageContent %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>IMS Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+        }
+        
+        .background {
+            background: black;
+            background-size: cover;
+        }
+        
+        .nav-list {
+            width: 70%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-list li {
+            list-style: none;
+            padding: 26px 30px;
+        }
+        
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .nav-list li a:hover {
+            color: grey;
+        }
+        
+        .rightnav {
+            width: 30%;
+            text-align: right;
+        }
+        
+        .firstsection {
+            height: 500px;
+        }
+        
+        .box-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            max-width: 80%;
+            margin: auto;
+            height: 80%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 60px;
+        }
+        
+        .text-big {
+            font-family: 'Piazzolla', serif;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        
+        .text-small {
+            font-size: 18px;
+        }
+        
+        .section {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90%;
+            margin: auto;
+        }
+        
+        .text-footer {
+            text-align: center;
+            padding: 30px 0;
+            font-family: 'Ubuntu', sans-serif;
+            display: flex;
+            justify-content: center;
+            color: white;
+        }
+        
+        .form {
+            text-align: center;
+            font-size: 40px;
+        }
+        
+        .submit {
+            font-size: 25px
+        }
+        
+        .input {
+            color: black;
+            box-sizing: border-box;
+            width: 200px;
+            padding: 10px 10px;
+            border: 1px solid gray;
+        }
+    </style>
+    <meta name='viewport' content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+    <nav class="navbar background">
+        <ul class="nav-list">
+            <li>
+                <a href="{% url 'trial:homepage' %}">HOME</a>
+            </li>
+            <li>
+                <a href="registration">REGISTRATION</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="firstsection">
+        <div class="box-main">
+            <div class="firstHalf">
+                <p class="text-big">WELCOME TO THE INVENTORY SYSTEM<br>
+                    <i> please fill the data below </i></p>
+                <form class="form" action="{% url 'trial:home' %}" method="POST">
+                    {% csrf_token %}
+                    <label>user name</label>
+                    <input class="input" type="text" name="user name" required/><br>
+                    <label>password</label>
+                    <input class='input' type="text" name="password" required/><br>
+                    <button class='submit' type="submit">login</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="background">
+        <p class="text-footer">
+            Copyright ©-All rights are reserved
+        </p>
+
+
+    </footer>
+</body>
+
+</html>
+{% endblock pageContent %}

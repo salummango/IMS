@@ -1,0 +1,66 @@
+{% load static %}{% block pageContent %} {% load crispy_forms_tags %}
+<html>
+
+<head>
+    <title>IMS User registration</title>
+</head>
+<style>
+    form {
+        font-size: 15px;
+        text-align: center;
+        border-radius: 45px;
+        background-color: mintcream;
+    }
+    
+    body {
+        background-color: white;
+    }
+    
+    .a {
+        font-size: 20px;
+        color: blue;
+    }
+    
+    .input {
+        display: block;
+        padding: 12px 15px;
+        width: 100%;
+        left: 50%;
+        outline: none;
+        border: 3px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    button {
+        color: blue;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    
+    .box {
+        width: 420px;
+        height: 475px;
+        margin: auto;
+        padding: 5px 50px 30px 50px;
+        border: 5px solid green;
+        margin-top: 5px;
+    }
+</style>
+
+
+<body>
+    {% block TopNavigation %} {% include "navigation.html" %} {% endblock TopNavigation %}
+    <form class="box form input" method=" Post " action="{% url 'trial:login' %}">
+        <h1 class="h1">Register</h1>
+        {% csrf_token %} {{register_form|crispy}}
+        <button class="btn btn-primary " type="submit ">Register</button>
+        <p>if you already have an account,
+            <a class="a" href="login "><b>Login</b></a> instead
+        </p>
+    </form>
+</body>
+
+{% endblock pageContent %}
+
+</html>

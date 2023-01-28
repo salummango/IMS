@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ur33vmt(-18_xl-5ftkx778so6qi(%#(n)&52wrvk!-@)&h&ar
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['212.86.105.194']
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'MyTest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'''C:\Users\user\Desktop\TEST\MyTest\trial\template'''],
+        'DIRS': [r'''C:\Users\user\Desktop\TEST\MyTest\static'''],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

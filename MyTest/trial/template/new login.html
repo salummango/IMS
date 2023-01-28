@@ -133,12 +133,12 @@
             <div class="firstHalf">
                 <p class="text-big">WELCOME TO THE INVENTORY SYSTEM<br>
                     <i> please fill the data below </i></p>
-                <form class="form" action="{% url 'trial:home' %}" method="POST">
+                <form class="form" action="home" method="POST">
                     {% csrf_token %}
                     <label>user name</label>
                     <input class="input" type="text" name="user name" required/><br>
                     <label>password</label>
-                    <input class='input' type="text" name="password" required/><br>
+                    <input class='input' type="password" name="password" required/><br>
                     <button class='submit' type="submit">login</button>
                 </form>
             </div>

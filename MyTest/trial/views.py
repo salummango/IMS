@@ -13,10 +13,10 @@ import sqlite3
 
 # Create your views here.
 def homepage(request):
-    return render(request=request,template_name="frontpage.html")
+    return render(request=request,template_name="index.html")
 
 def home(request):
-    return render(request=request,template_name="index.html")
+    return render(request=request,template_name="home.html")
 
 
 #registration view
